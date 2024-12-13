@@ -1,0 +1,67 @@
+{
+  "name": "qt-qmake-tasks",
+  "version": "0.1.0",
+  "description": "VSCode extension for Qt qmake project tasks",
+  "publisher": "Pascal Berndt",
+  "engines": {
+      "vscode": "^1.85.0"
+  },
+  "categories": [
+      "Other"
+  ],
+  "activationEvents": [
+      "workspaceContains:**/*.pro"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+      "commands": [
+          {
+              "command": "qtQmakeTasks.build",
+              "title": "Qt Qmake: Build Project"
+          },
+          {
+              "command": "qtQmakeTasks.clean",
+              "title": "Qt Qmake: Clean Project"
+          },
+          {
+              "command": "qtQmakeTasks.run",
+              "title": "Qt Qmake: Run Project"
+          },
+          {
+              "command": "qtQmakeTasks.debug",
+              "title": "Qt Qmake: Debug Project"
+          },
+          {
+              "command": "qtQmakeTasks.install",
+              "title": "Qt Qmake: Install Project"
+          },
+          {
+              "command": "qtQmakeTasks.generateCompileCommands",
+              "title": "Qt Qmake: Generate Compile Commands"
+          },
+          {
+            "command": "qtQmakeTasks.selectProFile",
+            "title": "Qt Qmake: Select Root Project File"
+          }
+      ],
+      "configuration": {
+        "title": "Qt Qmake Tasks",
+        "properties": {
+            "qtQmakeTasks.rootProFile": {
+                "type": "string",
+                "description": "Path to the root .pro file for the Qt project"
+            }
+        }
+    }
+  },
+  "scripts": {
+      "vscode:prepublish": "npm run compile",
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+      "@types/node": "^16.11.7",
+      "@types/vscode": "^1.85.0",
+      "typescript": "^4.9.4"
+  }
+}
