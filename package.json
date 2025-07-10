@@ -1,0 +1,95 @@
+{
+  "name": "qt5-qmake-support",
+  "displayName": "Qt5 QMake Support",
+  "description": "Complete Qt5 QMake project support for VS Code",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:cpp",
+    "workspaceContains:**/*.pro"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "qmake",
+        "aliases": [
+          "QMake",
+          "qmake"
+        ],
+        "extensions": [
+          ".pro",
+          ".pri"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "qmake",
+        "scopeName": "source.qmake",
+        "path": "./syntaxes/qmake.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "qt5.build",
+        "title": "Build Qt5 Project",
+        "category": "Qt5"
+      },
+      {
+        "command": "qt5.clean",
+        "title": "Clean Qt5 Project",
+        "category": "Qt5"
+      },
+      {
+        "command": "qt5.configure",
+        "title": "Configure Qt5 Project",
+        "category": "Qt5"
+      },
+      {
+        "command": "qt5.generateCompileCommands",
+        "title": "Generate Compile Commands",
+        "category": "Qt5"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Qt5 Configuration",
+      "properties": {
+        "qt5.qmakePath": {
+          "type": "string",
+          "default": "qmake",
+          "description": "Path to qmake executable"
+        },
+        "qt5.buildDirectory": {
+          "type": "string",
+          "default": "build",
+          "description": "Build directory relative to workspace"
+        },
+        "qt5.autoGenerateCompileCommands": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically generate compile_commands.json"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  }
+}

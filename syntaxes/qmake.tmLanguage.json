@@ -1,0 +1,33 @@
+{
+  "name": "QMake",
+  "scopeName": "source.qmake",
+  "patterns": [
+    {
+      "name": "comment.line.number-sign.qmake",
+      "match": "#.*$"
+    },
+    {
+      "name": "keyword.control.qmake",
+      "match": "\\b(if|else|endif|for|endfor|include|load|message|error|warning)\\b"
+    },
+    {
+      "name": "variable.other.qmake",
+      "match": "\\b(TARGET|SOURCES|HEADERS|FORMS|RESOURCES|CONFIG|QT|TEMPLATE|INCLUDEPATH|LIBS|DESTDIR|OBJECTS_DIR|MOC_DIR|RCC_DIR|UI_DIR)\\b"
+    },
+    {
+      "name": "string.quoted.double.qmake",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.qmake",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "keyword.operator.assignment.qmake",
+      "match": "[+\\-]?="
+    }
+  ]
+}
